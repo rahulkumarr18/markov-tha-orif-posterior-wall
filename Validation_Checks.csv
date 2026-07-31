@@ -1,0 +1,16 @@
+test_group,test_name,passed,value,expected,details
+base_case,THA_cohort_conservation,True,1.2505552149377763e-12,0.0,Maximum absolute deviation from starting cohort across cycles
+base_case,THA_death_absorbing,True,3.705479949653892,non-decreasing,Death-state occupancy should never decline
+base_case,THA_no_negative_states,True,0.0,>= 0,All state occupancies should remain non-negative
+base_case,ORIF_cohort_conservation,True,9.094947017729282e-13,0.0,Maximum absolute deviation from starting cohort across cycles
+base_case,ORIF_death_absorbing,True,3.467648112375457,non-decreasing,Death-state occupancy should never decline
+base_case,ORIF_no_negative_states,True,0.0,>= 0,All state occupancies should remain non-negative
+edge_case,THA_zero_event_stability,True,1000.0,1000,"With all hazards removed, the cohort should remain entirely in the initial well state"
+edge_case,ORIF_zero_event_stability,True,1000.0,1000,"With all hazards removed, the cohort should remain entirely in the initial well state"
+benchmark,THA_Q1_dislocation_events,True,14.6,14.6,Q1 THA dislocation events should match the programmed quarter-1 schedule when mortality is zero
+benchmark,THA_Q1_pji_events,True,14.3,14.3,Q1 THA infection events should match the programmed quarter-1 schedule when mortality is zero
+benchmark,ORIF_Q1_ssi_events,True,42.64,42.64,Q1 ORIF SSI events should match the programmed quarter-1 schedule when mortality is zero
+benchmark,ORIF_Q1_medical_comp_events,True,355.0,355.0,Q1 ORIF medical-complication events should match the programmed 90-day risk when mortality is zero
+pathway_isolation,ORIF_SSI_no_THA_state_leakage,True,0.0,0.0,"Under isolated ORIF SSI stress testing, no THA-specific states should accrue occupancy"
+pathway_isolation,converted_THA_no_index_THA_medical_comp_schedule,True,0.0,0.0,"In a conversion-only stress test, converted THA patients should not accrue index-THA medical-complication events"
+benchmark,ORIF_refracture_to_reop_accounting,True,96.312109375,96.312109375,"Under isolated refracture-only conditions, each refracture should generate one ORIF reoperation event"
